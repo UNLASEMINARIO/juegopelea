@@ -1,4 +1,5 @@
 import pygame
+from pygame.constants import FULLSCREEN
 
 class cursor(pygame.Rect):
     def __init__(self):
@@ -24,18 +25,18 @@ class boton(pygame.sprite.Sprite):
         pantalla.blit(self.imagen_actual,self.rect)
 def main():
     pygame.init()
-    pantalla=pygame.display.set_mode((600,480))
+    pantalla=pygame.display.set_mode((1024,600),FULLSCREEN)
     salir=False
     reloj1=pygame.time.Clock()
-    menu=pygame.image.load("imagen/menu1.png")
-    conluz=pygame.image.load("imagen/boton1.png")
-    sinluz=pygame.image.load("imagen/boton2.png")
-    conluz1=pygame.image.load("imagen/boton3.png")
-    sinluz1=pygame.image.load("imagen/boton4.png")
-    pygame.mixer.music.load("sonido/ARCADE2015.mp3")
-    sonidoselect=pygame.mixer.Sound("sonido/sonidoselect.wav")
-    botonini=boton(conluz,sinluz,320,50)
-    botonsal=boton(conluz1,sinluz1,320,125)
+    menu=pygame.image.load_extended("recursos/imagen/fondo5.jpg")
+    conluz=pygame.image.load("recursos/imagen/boton1.png")
+    sinluz=pygame.image.load("recursos/imagen/boton2.png")
+    conluz1=pygame.image.load("recursos/imagen/boton3.png")
+    sinluz1=pygame.image.load("recursos/imagen/boton4.png")
+    pygame.mixer.music.load("recursos/sonido/ARCADE2015.mp3")
+    sonidoselect=pygame.mixer.Sound("recursos/sonido/sonidoselect.wav")
+    botonini=boton(conluz,sinluz,10,10)
+    botonsal=boton(conluz1,sinluz1,10,500)
     cursor1=cursor()
     pygame.mixer.music.play(2)
     while salir!=True:
@@ -43,7 +44,7 @@ def main():
             if event.type==pygame.MOUSEBUTTONDOWN:
                 if cursor1.colliderect(botonini.rect):
                     sonidoselect.play()
-                if cursor1.colliderect(botonsal.rect):
+                if cursor1.colliderect(botonsal.rect): 
                     sonidoselect.play()
                     salir=True
             if event.type==pygame.QUIT:
@@ -53,6 +54,7 @@ def main():
         pantalla.blit(menu,(0,0))
         botonini.update(pantalla,cursor1)
         botonsal.update(pantalla,cursor1)
+
         pygame.display.update()
     
     pygame.quit()
