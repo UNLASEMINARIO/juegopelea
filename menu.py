@@ -29,13 +29,19 @@ def main():
     salir=False
     reloj1=pygame.time.Clock()
     menu=pygame.image.load_extended("recursos/imagen/fondo5.jpg")
-    conluz=pygame.image.load("recursos/imagen/boton1.png")
-    sinluz=pygame.image.load("recursos/imagen/boton2.png")
-    conluz1=pygame.image.load("recursos/imagen/boton3.png")
-    sinluz1=pygame.image.load("recursos/imagen/boton4.png")
+    conluz=pygame.image.load("recursos/imagen/letra1.png")
+    sinluz=pygame.image.load("recursos/imagen/letra2.png")
+    conluz1=pygame.image.load("recursos/imagen/letra3.png")
+    sinluz1=pygame.image.load("recursos/imagen/letra4.png")
+    conluz2=pygame.image.load("recursos/imagen/letra3.png")
+    sinluz2=pygame.image.load("recursos/imagen/letra4.png")
+    conluz3=pygame.image.load("recursos/imagen/letra3.png")
+    sinluz3=pygame.image.load("recursos/imagen/letra4.png")
     pygame.mixer.music.load("recursos/sonido/ARCADE2015.mp3")
     sonidoselect=pygame.mixer.Sound("recursos/sonido/sonidoselect.wav")
-    botonini=boton(conluz,sinluz,10,10)
+    botonini=boton(conluz,sinluz,10,200)
+    botonopc=boton(conluz2,sinluz2,10,300)
+    botoninst=boton(conluz3,sinluz3,10,400)
     botonsal=boton(conluz1,sinluz1,10,500)
     cursor1=cursor()
     pygame.mixer.music.play(2)
@@ -43,6 +49,10 @@ def main():
         for event in pygame.event.get():
             if event.type==pygame.MOUSEBUTTONDOWN:
                 if cursor1.colliderect(botonini.rect):
+                    sonidoselect.play()
+                if cursor1.colliderect(botonopc.rect):
+                    sonidoselect.play()
+                if cursor1.colliderect(botoninst.rect):
                     sonidoselect.play()
                 if cursor1.colliderect(botonsal.rect): 
                     sonidoselect.play()
@@ -53,6 +63,8 @@ def main():
         cursor1.update()
         pantalla.blit(menu,(0,0))
         botonini.update(pantalla,cursor1)
+        botonopc.update(pantalla,cursor1)
+        botoninst.update(pantalla,cursor1)
         botonsal.update(pantalla,cursor1)
 
         pygame.display.update()
