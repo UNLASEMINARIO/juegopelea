@@ -31,8 +31,8 @@ def main():
     menu=pygame.image.load_extended("recursos/imagen/fondo5.jpg")
     conluz=pygame.image.load("recursos/imagen/letra1.png")
     sinluz=pygame.image.load("recursos/imagen/letra2.png")
-    conluz1=pygame.image.load("recursos/imagen/letra3.png")
-    sinluz1=pygame.image.load("recursos/imagen/letra4.png")
+    conluz1=pygame.image.load("recursos/imagen/letra7.png")
+    sinluz1=pygame.image.load("recursos/imagen/letra8.png")
     conluz2=pygame.image.load("recursos/imagen/letra3.png")
     sinluz2=pygame.image.load("recursos/imagen/letra4.png")
     conluz3=pygame.image.load("recursos/imagen/letra3.png")
@@ -59,7 +59,7 @@ def main():
                     salir=True
             if event.type==pygame.QUIT:
                 salir=True
-        reloj1.tick(30)
+        reloj1.tick(50)
         cursor1.update()
         pantalla.blit(menu,(0,0))
         botonini.update(pantalla,cursor1)
