@@ -29,14 +29,15 @@ def main():
     salir=False
     reloj1=pygame.time.Clock()
     menu=pygame.image.load_extended("recursos/imagen/fondo5.jpg")
+    creditos=pygame.image.load("recursos/imagen/creditos.png")
     conluz=pygame.image.load("recursos/imagen/letra1.png")
     sinluz=pygame.image.load("recursos/imagen/letra2.png")
     conluz1=pygame.image.load("recursos/imagen/letra7.png")
     sinluz1=pygame.image.load("recursos/imagen/letra8.png")
     conluz2=pygame.image.load("recursos/imagen/letra3.png")
     sinluz2=pygame.image.load("recursos/imagen/letra4.png")
-    conluz3=pygame.image.load("recursos/imagen/letra3.png")
-    sinluz3=pygame.image.load("recursos/imagen/letra4.png")
+    conluz3=pygame.image.load("recursos/imagen/letra5.png")
+    sinluz3=pygame.image.load("recursos/imagen/letra6.png")
     pygame.mixer.music.load("recursos/sonido/ARCADE2015.mp3")
     sonidoselect=pygame.mixer.Sound("recursos/sonido/sonidoselect.wav")
     botonini=boton(conluz,sinluz,10,200)
@@ -53,6 +54,7 @@ def main():
                 if cursor1.colliderect(botonopc.rect):
                     sonidoselect.play()
                 if cursor1.colliderect(botoninst.rect):
+                    pantalla.blit(creditos,(0,0))
                     sonidoselect.play()
                 if cursor1.colliderect(botonsal.rect): 
                     sonidoselect.play()
